@@ -33,18 +33,19 @@ test('find product by id', assert => {
     assert.deepEqual(foundVeggie, expected);
 });
 
-// test('calculate line total', (assert) => {
-//     // arrange
-//     const quantity = 3;
-//     const price = 2.01;
-//     const expected = 6.03;
+test('calculate line total', (assert) => {
+    // arrange
+    const quantity = 3;
+    const price = 2.01;
+    const expected = 6.03;
 
-//     // act 
-//     const total = calcLineItem(quantity, price);
+    // act 
+    const total = calcLineItem(quantity, price);
 
-//     // assert
-//     assert.equal(total, expected);
-// });
+    // assert
+    assert.equal(total, expected);
+});
+
 // const makePrettyCurrency = (number) =>
 //     number.toLocalString('en-US', 
 //         { 
