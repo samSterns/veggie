@@ -16,5 +16,5 @@ for(let i = 0; i < cart.length; i++) {
     tbody.appendChild(dom);
 }
 
-// const orderTotal = calcOrderTotal(cart, veggieArray);
-// orderTotalCell.textContent = toUSD(orderTotal);
+const orderTotal = calcOrderTotal(cart, veggieArray);
+orderTotalCell.textContent = toUSD(orderTotal);

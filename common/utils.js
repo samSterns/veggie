@@ -1,3 +1,5 @@
+import veggieArray from '../data/veggie.js';
+
 export function findById(items, id) {
     for(let i = 0; i < items.length; i++) {
         const item = items[i];
@@ -14,7 +16,6 @@ export function toUSD(number) {
         currency: 'USD' 
     });
 }
-
 export function calcLineItem(quantity, price) {
     const amount = quantity * price;
     return roundCurrency(amount);
@@ -23,15 +24,20 @@ function roundCurrency(amount) {
     return Math.round(amount * 100) / 100;
 }
 
-// export function calcOrderTotal(cart, fruits) {
-//     let orderTotal = 0;
+export function calcOrderTotal(cart, veggieArray) {
+    let orderTotal = 0;
 
-//     for(let i = 0; i < cart.length; i++) {
-//         const lineItem = cart[i];
-//         const fruit = findById(fruits, lineItem.id);
-//         const lineTotal = calcLineTotal(lineItem.quantity, fruit.price);
-//         orderTotal += lineTotal;
-//     }
+    for(let i = 0; i < cart.length; i++) {
+        const lineItem = cart[i];
+        const veggie = findById(veggieArray, lineItem.id);
+        const lineTotal = calcLineItem(lineItem.quantity, veggie.price);
+        orderTotal += lineTotal;
+    }
+    return roundCurrency(orderTotal);
+}
+export const makePrettyCurrency = (number) =>
+    number.toLocalString('en-US', { 
+        style: 'currency', 
+        currency: 'USD' });
 
-//     return roundCurrency(orderTotal);
-// }
+export const totalVeggiePrice = (veggie, quantity) => veggie.price * quantity;
