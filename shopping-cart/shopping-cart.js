@@ -1,6 +1,6 @@
 import { renderTableRow } from './render-table-row.js.js';
 import { getPrettyCurrncy } from ''
-import fruits, { cart, } from '../api.js'; //what did you name this???
+import fruits, { cart, } from '../cart.js'; //what did you name this???
 
 // const tableElement = document.querySelectorAll('tbody');
 // cart.forEach(fruit => {
