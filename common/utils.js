@@ -8,12 +8,12 @@ export function findById(items, id) {
     return null;
 }
 
-// export function toUSD(number) {
-//     return number.toLocaleString('en-US', { 
-//         style: 'currency', 
-//         currency: 'USD' 
-//     });
-// }
+export function toUSD(number) {
+    return number.toLocaleString('en-US', { 
+        style: 'currency', 
+        currency: 'USD' 
+    });
+}
 
 export function calcLineItem(quantity, price) {
     const amount = quantity * price;
