@@ -1,15 +1,20 @@
-import { renderTableRow } from './render-table-row.js.js';
-import { getPrettyCurrncy } from ''
-import fruits, { cart, } from '../cart.js'; //what did you name this???
+import cart from '../data/cart.js';
+import veggieArray from '../data/fruits.js';
+import { findById, calcOrderTotal, toUSD } 
+    from '../common/utils.js';
+import renderLineItem 
+    from './render-line-item.js';
 
-// const tableElement = document.querySelectorAll('tbody');
-// cart.forEach(fruit => {
-//     const fruitIdFromOrder = fruitOrder.id;
-//     for (let i =0; i < fruit.legnth; i++) {
-//         if (fruits[i].id === fruitIdFromOrder){
-//             const row = renderTableRow(fruits[i], fruitOrder);
-//         }
-//     }
-//     renderTableRow(fruit, fruitOrder)
-// };
-// tableElement.appendChild();
+const tbody = document.querySelector('tbody');
+const orderTotalCell = document.getElementById('order-total-cell');
+
+for(let i = 0; i < cart.length; i++) {
+    const lineItem = cart[i];
+    const veggie = findById(veggieArray, lineItem.id);
+    const dom = renderLineItem(lineItem, veggie);
+
+    tbody.appendChild(dom);
+}
+
+// const orderTotal = calcOrderTotal(cart, veggieArray);
+// orderTotalCell.textContent = toUSD(orderTotal);
