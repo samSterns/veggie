@@ -1,4 +1,3 @@
-
 function renderVeggie(veggie) {
     
     const li = document.createElement('li');
