@@ -79,7 +79,6 @@ const veggieArray = [
 ];
 
 export default veggieArray;
-
 // export const cart = [{
 //     code: 'apple',
 //     quantity: 2
