@@ -1,0 +1,7 @@
+table {
+    width: 500px;
+}
+
+td, th {
+    text-align:center;
+}
