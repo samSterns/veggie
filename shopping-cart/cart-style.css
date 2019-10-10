@@ -4,4 +4,5 @@ table {
 
 td, th {
     text-align:center;
+    border: solid 5px green;
 }

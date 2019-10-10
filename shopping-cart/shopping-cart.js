@@ -1,5 +1,5 @@
 import cart from '../data/cart.js';
-import veggieArray from '../data/fruits.js';
+import veggieArray from '../data/veggie.js';
 import { findById, calcOrderTotal, toUSD } 
     from '../common/utils.js';
 import renderLineItem 
@@ -18,3 +18,5 @@ for(let i = 0; i < cart.length; i++) {
 
 const orderTotal = calcOrderTotal(cart, veggieArray);
 orderTotalCell.textContent = toUSD(orderTotal);
+
+export default cart;
