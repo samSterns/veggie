@@ -1,3 +1,5 @@
+import getCart from '../shopping-cart/shopping-cart';
+
 export function findById(items, id) {
     for(let i = 0; i < items.length; i++) {
         const item = items[i];
@@ -24,7 +26,7 @@ function roundCurrency(amount) {
 
 export function calcOrderTotal(cart, veggieArray) {
     let orderTotal = 0;
-
+    let cart = getCart();
     for(let i = 0; i < cart.length; i++) {
         const lineItem = cart[i];
         const veggie = findById(veggieArray, lineItem.id);

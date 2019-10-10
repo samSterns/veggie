@@ -1,4 +1,3 @@
-
 import veggieArray from '../data/veggie.js';
 import renderVeggie from './render-veggie.js';
 

@@ -10,15 +10,18 @@ export const getCart = () => {
     JSON.parse(localStorage.getItem('Cart'));
 };
 
-for(let i = 0; i < getCart().length; i++) {
-    const lineItem = getCart()[i];
-    const veggie = findById(veggieArray, lineItem.id);
-    const dom = renderLineItem(lineItem, veggie);
+let cart = getCart();
+if(cart) {
+    for(let i = 0; i < cart.length; i++) {
+        const lineItem = cart[i];
+        const veggie = findById(veggieArray, lineItem.id);
+        const dom = renderLineItem(lineItem, veggie);
 
-    tbody.appendChild(dom);
-}
+        tbody.appendChild(dom);
+    }
+} 
 
-const orderTotal = calcOrderTotal(getCart(), veggieArray);
+const orderTotal = calcOrderTotal(cart, veggieArray);
 orderTotalCell.textContent = toUSD(orderTotal);
 
 if(getCart.length === 0) {
