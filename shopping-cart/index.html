@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./products/product.css">
+    <link rel="stylesheet" href="cart-style.css">
     <title>Document</title>
 </head>
 <body>
-    <!-- <nav> 
-    
-        <a href='../'
-    </nav>  -->
+    <header>
+        <h1>Fruit Stand Shopping Cart</h1>
+        <nav>
+            <a href="../">Home</a>
+            <a href="../products">Buy Fruit</a>
+            <a href="../shopping-cart/index.html">Shopping Cart</a>
+        </nav>
+    </header>
+<main>
     <table>
         <thead>
              <tr>
                 <th class="align-left">Fruit</th>
-                <th>Qty</th>
+                <th>Quantity</th>
                 <th>Price</th>
                 <th>Total</th>
             </tr>
@@ -24,14 +30,12 @@
     
         <tbody>
             <tr>
-                <td>apple</td>
+                <td>spinach</td>
                 <td>4</td>
                 <td>$1.00</td>
                 <td>$4.00</td>
             </tr>
-            
         </tbody>
-    
                 <tfoot>
                     <tr>
                         <th></th>
@@ -41,6 +45,10 @@
                     </tr>
                 </tfoot>
             </table>
-    <script type = "module" src="app.js"></script>
+    <p class="order-noe-cell">
+    <button>Place Order</button>
+    </p>
+</main>
+    <script type = "module" src="shopping-cart.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 const spinach = {
     id: 'spinach',
-    name: 'Baby Spinach',
+    name: 'spinach',
     image: 'spinach.png',
     description: 'Listen to Popeye but eat it fresh',
     category: 'leafy-greens',

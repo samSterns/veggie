@@ -1,4 +1,4 @@
-.veggie-box {
+.veggie-list {
     border: solid 10px black;
     border-radius: 5px;
     display: flex;
@@ -10,7 +10,7 @@
     width: 150px;
 }
 
-.veggie-box > img {
+.veggie-list > img {
     width: 100px; 
     height: 100px;
 }
@@ -22,7 +22,7 @@
 
 body {
     background-color: bisque;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 h1 {
