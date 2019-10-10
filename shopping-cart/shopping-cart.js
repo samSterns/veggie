@@ -1,22 +1,33 @@
-import cart from '../data/cart.js';
 import veggieArray from '../data/veggie.js';
-import { findById, calcOrderTotal, toUSD } 
-    from '../common/utils.js';
-import renderLineItem 
-    from './render-line-item.js';
+import { findById, calcOrderTotal, toUSD } from '../common/utils.js';
+import renderLineItem from './render-line-item.js';
 
 const tbody = document.querySelector('tbody');
 const orderTotalCell = document.getElementById('order-total-cell');
+const placeOrderButton = document.getElementById('place-order-button');
 
-for(let i = 0; i < cart.length; i++) {
-    const lineItem = cart[i];
+export const getCart = () => {
+    JSON.parse(localStorage.getItem('Cart'));
+};
+
+for(let i = 0; i < getCart().length; i++) {
+    const lineItem = getCart()[i];
     const veggie = findById(veggieArray, lineItem.id);
     const dom = renderLineItem(lineItem, veggie);
 
     tbody.appendChild(dom);
 }
 
-const orderTotal = calcOrderTotal(cart, veggieArray);
+const orderTotal = calcOrderTotal(getCart(), veggieArray);
 orderTotalCell.textContent = toUSD(orderTotal);
 
-export default cart;
+if(getCart.length === 0) {
+    placeOrderButton.disabled = true;
+}
+else {
+    placeOrderButton.addEventListener('click', () => {
+        localStorage.removeItem('CART');
+        alert('Order placed:\n' + JSON.stringify(getCart, true, 2));
+        window.location = '../';
+    });
+}

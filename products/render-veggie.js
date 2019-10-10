@@ -1,4 +1,5 @@
 import { findById } from '../common/utils.js';
+import { getCart } from '../shopping-cart/shopping-cart.js';
 
 function renderVeggie(veggie) {
     
@@ -29,11 +30,8 @@ function renderVeggie(veggie) {
     button.id = veggie.id;
     
     button.addEventListener('click', () => {
-        let json = localStorage.getItem('Cart');
-        let cart; 
-        if(json) {
-            cart = JSON.parse(json);
-        } else {
+        let cart = getCart();
+        if(!cart) {
             cart = [];
         }
 
@@ -50,17 +48,15 @@ function renderVeggie(veggie) {
             lineItem.quantity++;
         }
 
-        json = JSON.stringify(cart);
+        let json = JSON.stringify(cart);
         localStorage.setItem('CART', json);
 
         alert('1' + veggie.name + 'added to cart');
     });
 
-    li.appendChild(button);
+    div.appendChild(button);
 
-    p.appendChild(button);
-
-    li.appendChild(p);
+    li.appendChild(div);
 
     return li;
 }
