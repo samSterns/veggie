@@ -1,3 +1,5 @@
+import { findById } from '../common/utils.js';
+
 function renderVeggie(veggie) {
     
     const li = document.createElement('li');
@@ -23,11 +25,42 @@ function renderVeggie(veggie) {
     li.appendChild(priceDiv);
     
     const button = document.createElement('button');
-    button.id = veggie.id;
     button.textContent = 'Add to Cart';
+    button.id = veggie.id;
+    
+    button.addEventListener('click', () => {
+        let json = localStorage.getItem('Cart');
+        let cart; 
+        if(json) {
+            cart = JSON.parse(json);
+        } else {
+            cart = [];
+        }
+
+        let lineItem = findById(cart, veggie.id);
+
+        if(!lineItem) {
+            lineItem = {
+                id: veggie.id,
+                quantity: 1
+            };
+
+            cart.push(lineItem);
+        } else {
+            lineItem.quantity++;
+        }
+
+        json = JSON.stringify(cart);
+        localStorage.setItem('CART', json);
+
+        alert('1' + veggie.name + 'added to cart');
+    });
+
     li.appendChild(button);
 
-    // li.appendChild(p);
+    p.appendChild(button);
+
+    li.appendChild(p);
 
     return li;
 }
