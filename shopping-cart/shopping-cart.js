@@ -1,12 +1,14 @@
 import veggieArray from '../data/veggie.js';
-import { findById, calcOrderTotal, toUSD } from '../common/utils.js';
+import { findById } from '../common/utils.js';
+// import{ calcOrderTotal, toUSD } from '../common/utils.js';
 import renderLineItem from './render-line-item.js';
 
 const tbody = document.querySelector('tbody');
-const orderTotalCell = document.getElementById('order-total-cell');
-const placeOrderButton = document.getElementById('place-order-button');
+// const orderTotalCell = document.getElementById('order-total-cell');
+// const placeOrderButton = document.getElementById('place-order-button');
 
 export const getCart = () => {
+    console.log('made it here');
     JSON.parse(localStorage.getItem('Cart'));
 };
 
@@ -21,16 +23,16 @@ if(cart) {
     }
 } 
 
-const orderTotal = calcOrderTotal(cart, veggieArray);
-orderTotalCell.textContent = toUSD(orderTotal);
+// const orderTotal = calcOrderTotal(cart, veggieArray);
+// orderTotalCell.textContent = toUSD(orderTotal);
 
-if(getCart.length === 0) {
-    placeOrderButton.disabled = true;
-}
-else {
-    placeOrderButton.addEventListener('click', () => {
-        localStorage.removeItem('CART');
-        alert('Order placed:\n' + JSON.stringify(getCart, true, 2));
-        window.location = '../';
-    });
-}
+// if(getCart.length === 0) {
+//     placeOrderButton.disabled = true;
+// }
+// else {
+//     placeOrderButton.addEventListener('click', () => {
+//         localStorage.removeItem('CART');
+//         alert('Order placed:\n' + JSON.stringify(getCart, true, 2));
+//         window.location = '../';
+//     });
+// }
