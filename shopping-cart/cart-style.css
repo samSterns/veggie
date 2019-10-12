@@ -30,10 +30,12 @@ nav li {
 } 
 
 table {
+    padding-top: 20px;
     width: 500px;
 }
 
 td, th {
+    padding-top: 20px;
     text-align:center;
-    border: solid 5px green;
+    border: solid 3px rgb(113, 241, 241);
 }

@@ -1,5 +1,6 @@
 import { findById } from '../common/utils.js';
 import { getCart } from '../shopping-cart/shopping-cart.js';
+import { toUSD } from '../common/utils.js';
 
 function renderVeggie(veggie) {
     
@@ -15,15 +16,15 @@ function renderVeggie(veggie) {
 
     const img = document.createElement('img');
     img.id = 'image';
-    img.src = '../images-veggie/' + veggie.image;
+    img.src = '../data/' + veggie.image;
     img.alt = veggie.name + ' image';
     li.appendChild(img);
 
     const usd = '$' + veggie.price.toFixed(2);
 
-    const priceDiv = document.createElement('div');
-    priceDiv.textContent = usd;
-    li.appendChild(priceDiv);
+    const p = document.createElement('p');
+    p.className = 'price';
+    p.textContent = toUSD(veggie.price);
     
     const button = document.createElement('button');
     button.textContent = 'Add to Cart';
@@ -52,12 +53,12 @@ function renderVeggie(veggie) {
         let json = JSON.stringify(cart);
         localStorage.setItem('CART', json);
 
-        alert('1' + veggie.name + 'added to cart');
+        alert('1 ' + veggie.name + '  added to your cart');
     });
 
-    div.appendChild(button);
+    p.appendChild(button);
 
-    li.appendChild(div);
+    li.appendChild(p);
 
     return li;
 }
