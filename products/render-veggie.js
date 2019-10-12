@@ -30,6 +30,7 @@ function renderVeggie(veggie) {
     button.id = veggie.id;
     
     button.addEventListener('click', () => {
+        console.log('made it here');
         let cart = getCart();
         if(!cart) {
             cart = [];
