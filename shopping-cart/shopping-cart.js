@@ -10,10 +10,28 @@ const placeOrderButton = document.getElementById('placeOrderButton');
 
 export const getCart = () => {
     console.log('made it here');
-    return JSON.parse(localStorage.getItem('CART'));
+    return JSON.parse(localStorage.getItem('CART')) || [];
 };
 
 let cart = getCart();
+
+if(cart.length === 0 && placeOrderButton) {
+    placeOrderButton.disabled = true;
+}
+else if(placeOrderButton) {
+    placeOrderButton.addEventListener('click', () => {
+        localStorage.removeItem('CART');
+        alert('Order placed:\n' + JSON.stringify(cart, true, 2));
+        window.location = '../';
+    });
+}
+
+// if(placeOrderButton) {
+//     placeOrderButton.addEventListener('click', () => {
+//         alert('your cart contents are: ' + );
+//     });
+// }
+
 if(cart && tbody) {
     for(let i = 0; i < cart.length; i++) {
         const lineItem = cart[i];
@@ -22,21 +40,12 @@ if(cart && tbody) {
 
         tbody.appendChild(dom);
     } 
-} else if(placeOrderButton) {
-    placeOrderButton.disabled = true;
 }
+// } else if(placeOrderButton) {
+//     placeOrderButton.disabled = true;
+// }
 
 
 // const orderTotal = calcOrderTotal(cart, veggieArray);
 // orderTotalCell.textContent = toUSD(orderTotal);
 
-// if(getCart.length === 0) {
-//     placeOrderButton.disabled = true;
-// }
-// else {
-//     placeOrderButton.addEventListener('click', () => {
-//         localStorage.removeItem('CART');
-//         alert('Order placed:\n' + JSON.stringify(getCart, true, 2));
-//         window.location = '../';
-//     });
-// }
