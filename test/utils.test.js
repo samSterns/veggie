@@ -1,7 +1,7 @@
 import veggieArray from '../data/veggie.js';
-import cart from '../data/cart.js';
 import { findById, calcLineItem, calcOrderTotal } 
     from '../common/utils.js';
+import { getCart } from '../shopping-cart/shopping-cart.js';
 const test = QUnit.test;
 
 QUnit.module('Utilities');
@@ -20,8 +20,7 @@ test('find product by id', assert => {
         image: 'spinach.png',
         description: 'Listen to Popeye but eat it fresh',
         category: 'leafy-greens',
-        price: 1.00,
-        cost: 0.25
+        price: 2.00
     };
     const foundVeggie = findById(veggieArray, id);
     assert.ok(foundVeggie);
@@ -45,8 +44,19 @@ test('calculate line total', (assert) => {
     const total = calcLineItem(quantity, price);
     assert.equal(total, expected);
 });
+
 test('calculate order total', (assert) => {
-    const expected = 83.5;
+    const cart = [
+        {
+            'id': 'yellow-squash',
+            'quantity': 1
+        },
+        {
+            'id': 'chard',
+            'quantity': 1
+        }
+    ];
+    const expected = 3.04;
 
     const orderTotal = calcOrderTotal(cart, veggieArray);
 
