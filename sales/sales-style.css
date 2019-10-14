@@ -1,0 +1,41 @@
+nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: aqua;
+    border-radius: 10%;
+}
+
+.nav-bar-home {
+   width: 50%;
+   display:flex;
+   justify-content:flex-start;
+   border-radius: 10%;    
+}
+
+.nav-bar-other {
+   width: 50%;
+   display:flex;
+   justify-content:flex-end;
+   justify-content:space-around;
+   border-radius: 10%;
+}
+
+nav li {
+   display: flex;
+   justify-content: center;
+   list-style: none;
+   background-color: burlywood;
+   border-radius: 10%;
+   width: 20%;
+} 
+
+table {
+    padding-top: 20px;
+    width: 500px;
+}
+
+td, th {
+    padding-top: 20px;
+    text-align:center;
+    border: solid 3px rgb(113, 241, 241);
+}
